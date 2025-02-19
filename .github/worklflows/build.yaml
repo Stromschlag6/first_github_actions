@@ -1,0 +1,23 @@
+name: Build Project
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Code auschecken
+        uses: actions/checkout@v2
+
+      - name: install dependecies
+        run: npm i
+
+      - name: Projekt bauen
+        run: npm run build
+
+      - name: ausgeben zur Überprüfung
+        run: ls -la
